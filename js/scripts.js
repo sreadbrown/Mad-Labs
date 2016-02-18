@@ -1,18 +1,11 @@
 $(document).ready(function() {
   $("#blanks form").submit(function(event) {
-    var person1Input = $("input#person1").val().toUpperCase();
-    var person2Input = $("input#person2").val().toUpperCase();
-    var animalInput = $("input#animal").val().toUpperCase();
-    var exclamationInput = $("input#exclamation").val();
-    var verbInput = $("input#verb").val();
-    var nounInput = $("input#noun").val();
+    var blanks = ["person1", "person2", "animal", "exclamation", "verb", "noun"];
 
-    $(".person1").text(person1Input);
-    $(".person2").text(person2Input);
-    $(".animal").text(animalInput);
-    $(".exclamation").text(exclamationInput);
-    $(".verb").text(verbInput);
-    $(".noun").text(nounInput);
+    blanks.forEach(function(blank) {
+      var userInput = $("input#" + blank).val();
+      $("." + blank).text(userInput);
+    });
 
     $("#story").show();
 
@@ -20,16 +13,25 @@ $(document).ready(function() {
   });
 });
 
-//
+// OLD CODE PRE LOOPING SAVED FOR REFERENCE
 // $(document).ready(function() {
+//   $("#blanks form").submit(function(event) {
+//     var person1Input = $("input#person1").val().toUpperCase();
+//     var person2Input = $("input#person2").val().toUpperCase();
+//     var animalInput = $("input#animal").val().toUpperCase();
+//     var exclamationInput = $("input#exclamation").val();
+//     var verbInput = $("input#verb").val();
+//     var nounInput = $("input#noun").val();
 //
-//   $("div#click-one").click(function(event) {
-//     var whatToSay = "Hello!";
-//     alert(whatToSay);
-//   });
+//     $(".person1").text(person1Input);
+//     $(".person2").text(person2Input);
+//     $(".animal").text(animalInput);
+//     $(".exclamation").text(exclamationInput);
+//     $(".verb").text(verbInput);
+//     $(".noun").text(nounInput);
 //
-//   $("div#click-two").click(function(event) {
-//     var whatToSay = "ping pong is not fun";
-//     alert(whatToSay);
+//     $("#story").show();
+//
+//     event.preventDefault();
 //   });
 // });
